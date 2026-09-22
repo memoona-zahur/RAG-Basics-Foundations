@@ -143,8 +143,9 @@ computed by hand:
 topic-clustered. On every query the genuinely relevant sentence makes the top-3,
 but the other two same-topic sentences come along for the ride, so exactly one of
 the three retrieved chunks is actually on-point. The same finding shows up in the
-near-tie in query 3 (the embedding and vector-database sentences scored 0.6599 vs
-0.6579) — a slightly re-worded query could flip that order and cost recall there.
+near-tie in query 3 (the vector-database sentence — the relevant one — scored
+0.6599 vs the embedding sentence's 0.6579) — a slightly re-worded query could
+flip that order and cost recall there.
 So on this corpus retrieval is *reliable but wasteful*: it finds the needle every
 time while packing the prompt with two irrelevant neighbours. This is why
 retrieval evaluation matters in the pipeline, not as an afterthought, and why
