@@ -2,7 +2,8 @@
 
 ## What this project proves
 
-A full retrieval pipeline on 10 real sentences, end to end: chunking a real
+A full retrieval pipeline on a 10-sentence corpus (9 base sentences + 1 bait,
+added in task 5), end to end: chunking a real
 document, embedding with a local model, storing and searching in an in-memory
 vector database, deliberately breaking semantic search with an exact-ID query,
 and scoring the whole thing with precision@k / recall@k.
