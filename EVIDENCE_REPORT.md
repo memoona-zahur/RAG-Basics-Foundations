@@ -8,7 +8,7 @@ reproducible by running the named script; captured live outputs live in
 |---|---|---|---|
 | 1 | Document chunked two ways; awkward cut found and shown fixed | `part_a/chunk_document.py` | `evidence/task1_chunking.txt` |
 | 2 | Cosine similarity by hand on 3 real embedded sentences | `part_a/cosine_similarity.py` | `evidence/task2_cosine_similarity.txt` |
-| 3 | Qdrant collection created locally (in-memory) with 10 embedded sentences | `part_b/setup_qdrant.py` | `evidence/task3_qdrant_setup.txt` |
+| 3 | Qdrant collection created locally (in-memory) with 9 embedded sentences | `part_b/setup_qdrant.py` | `evidence/task3_qdrant_setup.txt` |
 | 4 | Real query run; top result verified sensible by inspection | `part_b/query_qdrant.py` | `evidence/task4_query.txt` |
 | 5 | Exact-ID query against pure vector search, honestly reported | `part_c/break_semantic_search.py` | `evidence/task5_break_semantic.txt` |
 | 6 | Precision@3 / recall@3 computed by hand on 3 real queries | `part_c/precision_recall.py` | `evidence/task6_precision_recall.txt` |

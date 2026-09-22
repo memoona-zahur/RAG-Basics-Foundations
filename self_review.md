@@ -10,7 +10,8 @@
       `np.dot / (norm*norm)` on 3 real embedded sentences; related pair (0.443)
       higher than both unrelated pairs (≤ 0.097).
 - [x] **Qdrant collection created locally** — `setup_qdrant.py`: in-memory mode,
-      10 real embedded sentences, text+topic payload, Qdrant confirms 10 points.
+      9 real embedded sentences, text+topic payload, Qdrant confirms 9 points
+      (the REF-4471 bait is added later, in task 5).
 - [x] **Real query run and top result verified** — `query_qdrant.py`: cold-brew
       sentence top-ranked and confirmed by inspection, not just "code ran".
 - [x] **Exact-ID query tested, result honestly reported** — `break_semantic_search.py`:

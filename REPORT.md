@@ -113,7 +113,7 @@ that exact ID string:
 
 > Ticket REF-4471 was resolved by rotating the API key.
 
-**Honest result — query `"REF-4471"`:** pure vector search *did* return the tank
+**Honest result — query `"REF-4471"`:** pure vector search *did* return the bait
 sentence at rank 1. You should read that as luck, not reliability: the corpus is
 10 sentences and the token string literally appears in one of them, so leaving a
 single strong token fingerprint was enough. **Honest result — query `"TICK-9981"`**
