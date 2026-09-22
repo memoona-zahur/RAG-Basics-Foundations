@@ -1,0 +1,13 @@
+﻿collection='mixed_topics' | mode=in-memory | points_count=9 | distance=Cosine | dim=384
+
+  id  0 | topic=coffee  | Espresso is a concentrated coffee brewed by forcing hot water through 
+  id  1 | topic=coffee  | Pour-over coffee uses a paper filter and a gooseneck kettle to brew a 
+  id  2 | topic=coffee  | Cold brew is made by steeping coarse coffee grounds in cold water for 
+  id  3 | topic=cycling | Road bikes are lightweight and built for speed on paved surfaces with 
+  id  4 | topic=cycling | Mountain bikes use wide, knobby tires for traction on dirt trails and 
+  id  5 | topic=cycling | A bike helmet is the single most important piece of safety equipment f
+  id  6 | topic=ml      | An embedding is a vector of numbers that captures the meaning of a pie
+  id  7 | topic=ml      | Vector databases index embeddings so similarity search over millions o
+  id  8 | topic=ml      | RAG retrieves relevant document chunks and grounds the model's answer 
+
+9 real embedded sentences stored with text payload (within the 8-10 kata range). Qdrant confirms 9 points.

@@ -1,0 +1,12 @@
+﻿model: all-MiniLM-L6-v2 | 384-dim embeddings
+
+  s1_coffee_cold_brew          norm=1.0000
+  s2_coffee_pourover           norm=1.0000
+  s3_cycling_road              norm=1.0000
+
+Pairwise cosine similarity (hand-computed with NumPy):
+  s1 x s2 (related: coffee) = 0.4430
+  s1 x s3 (unrelated)      = 0.0972
+  s2 x s3 (unrelated)      = 0.0548
+
+Related-pair similarity (0.4430) > both unrelated pairs (best 0.0972)? True

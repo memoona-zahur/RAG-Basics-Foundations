@@ -1,0 +1,23 @@
+﻿Source: source_document.md | total words (token stand-ins): 1342
+No-overlap chunks: 4 | ~15% overlap chunks: 4 (overlap = 60 words)
+
+=== NO OVERLAP (chunk_size=400 words, overlap=0 words) ===
+  chunk  1 | 400 words | starts '# RAG Basics – Chunking, Embeddings, V...' | ends '...t) is simple but can cut a sentence or'
+  chunk  2 | 400 words | starts 'an idea in half at an arbitrary bounda...' | ends '...llent at matching meaning and terrible'
+  chunk  3 | 400 words | starts 'at matching a specific token exactly —...' | ends '...is a real, tempting option for smaller'
+  chunk  4 | 142 words | starts 'corpora — but two things push back on ...' | ends '...ens to land in a much longer haystack.'
+
+=== WITH ~15% OVERLAP (chunk_size=400 words, overlap=60 words) ===
+  chunk  1 | 400 words | starts '# RAG Basics – Chunking, Embeddings, V...' | ends '...t) is simple but can cut a sentence or'
+  chunk  2 | 400 words | starts 'document as one unit — a long document...' | ends '...dds vector search as an extension to a'
+  chunk  3 | 400 words | starts 'this with approximate nearest-neighbor...' | ends '...ng question of a retrieved set: of the'
+  chunk  4 | 322 words | starts 'then use the slower, more accurate cro...' | ends '...ens to land in a much longer haystack.'
+
+--- Awkward cut found in the no-overlap version ---
+Boundary after chunk 0:  ......but can cut a sentence or  |  an idea in half at an...
+The severed sentence:
+    Fixed-size chunking (by token or character count) is simple but can cut a sentence or an idea in half at an arbitrary boundary; overlap — repeating a portion of one chunk's end at the start of the next — mitigates that by keeping cut-off context available in a neighboring chunk.
+
+Overlap check: is the severed sentence kept intact in the ~15% overlap split?
+  YES - intact in chunk 2 (overlapping split).
+  chunk 2 contains it as: ...document as one unit — a long document covers many topics, so its single embeddi...

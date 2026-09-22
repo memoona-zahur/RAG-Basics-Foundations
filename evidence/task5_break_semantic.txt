@@ -1,0 +1,35 @@
+﻿(A) Added 'Ticket REF-4471 was resolved by rotating the API key.'
+    -> collection now has 10 points (9 base + 1 bait).
+
+(B) Exact-ID query against PURE vector similarity search
+
+QUERY (exact ID token): 'REF-4471' | exists in corpus: True
+
+  rank 1 | id=9 | score=0.3412 | [support]  <-- the REF-4471 chunk
+        Ticket REF-4471 was resolved by rotating the API key.
+  rank 2 | id=8 | score=0.0716 | [ml]
+        RAG retrieves relevant document chunks and grounds the model's answer in them.
+  rank 3 | id=7 | score=0.0644 | [ml]
+        Vector databases index embeddings so similarity search over millions of vectors returns in milliseconds.
+
+  Honest verdict:
+  'REF-4471' is IN the corpus and pure vector search returned it at rank 1.
+  (Lucky tiny-corpus case: the token string literally appears in one of 10 sentences.)
+  Pure vector similarity has no notion of exact-token match, so exact-ID lookup
+  is unreliable by construction - the case hybrid search exists to fix.
+
+QUERY (exact ID token): 'TICK-9981' | exists in corpus: False
+
+  rank 1 | id=9 | score=0.2442 | [support]  <-- the REF-4471 chunk
+        Ticket REF-4471 was resolved by rotating the API key.
+  rank 2 | id=7 | score=0.1181 | [ml]
+        Vector databases index embeddings so similarity search over millions of vectors returns in milliseconds.
+  rank 3 | id=6 | score=0.0389 | [ml]
+        An embedding is a vector of numbers that captures the meaning of a piece of text.
+
+  Honest verdict:
+  'TICK-9981' is NOT in the corpus. Right answer: 'no such ID'. What vector search did:
+  return the nearest arbitrary chunks anyway, with no way to say 'not found'.
+  Pure vector similarity has no notion of exact-token match, so exact-ID lookup
+  is unreliable by construction - the case hybrid search exists to fix.
+

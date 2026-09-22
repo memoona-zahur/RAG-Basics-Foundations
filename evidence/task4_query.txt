@@ -1,0 +1,13 @@
+﻿QUERY: What kind of coffee is made by steeping ground beans in cold water?
+
+  #2 score=0.6930 [coffee]  <-- expected by hand
+      Cold brew is made by steeping coarse coffee grounds in cold water for 12 to 24 hours.
+  #0 score=0.5941 [coffee]
+      Espresso is a concentrated coffee brewed by forcing hot water through finely ground beans.
+  #1 score=0.4126 [coffee]
+      Pour-over coffee uses a paper filter and a gooseneck kettle to brew a bright, clean cup.
+
+Top result id=2 (expected 2).
+Human check: does the top hit answer the question?
+  -> Cold brew is made by steeping coarse coffee grounds in cold water for 12 to 24 hours.
+  -> YES, verified by inspection: search surfaced the cold-brew sentence.
