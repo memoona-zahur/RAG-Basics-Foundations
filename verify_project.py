@@ -13,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 
 REQUIRED_FILES = [
+    "README.md",
     "common.py",
     "requirements.txt",
     "part_a/source_document.md",
@@ -24,6 +25,7 @@ REQUIRED_FILES = [
     "part_b/query_qdrant.py",
     "part_c/break_semantic_search.py",
     "part_c/precision_recall.py",
+    "tests/test_kata.py",
     "EVIDENCE_REPORT.md",
     "REPORT.md",
     "technical_summary.md",
@@ -60,6 +62,17 @@ def main() -> int:
         print(f"  [{'ok' if ok else 'FAIL'}] {rel} (exit {proc.returncode})")
         if not ok:
             failures.append(f"script failed: {rel}\n{proc.stderr[-800:]}")
+
+    print("\n== 2b. Tests pass (pytest) ==")
+    proc = subprocess.run(
+        [sys.executable, "-m", "pytest", "-q", "tests/"],
+        capture_output=True, text=True, cwd=ROOT, timeout=600,
+    )
+    summary = [ln for ln in (proc.stdout + proc.stderr).splitlines() if "passed" in ln or "failed" in ln or "error" in ln.lower()]
+    ok = proc.returncode == 0
+    print(f"  [{'ok' if ok else 'FAIL'}] pytest exit {proc.returncode} | " + ("; ".join(summary[-2:]) or "no summary"))
+    if not ok:
+        failures.append(f"tests failed:\n{(proc.stdout + proc.stderr)[-1500:]}")
 
     print("\n== 3. No secrets committed ==")
     for path in ROOT.rglob("*"):
