@@ -20,7 +20,7 @@ Read the whole story top-to-bottom without opening code in
 | Task | What it demonstrates |
 |---|---|
 | Chunking by hand | Fixed-size chunking (400 tokens, word-count stand-in), overlap 0 vs ~15%; a real severed sentence found **and** shown fixed by overlap |
-| Cosine similarity by hand | `np.dot(a, b) / (||a||·||b||)` on 3 real embedded sentences; related pair outranks unrelated pairs |
+| Cosine similarity by hand | `np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))` on 3 real embedded sentences; related pair outranks unrelated pairs |
 | Qdrant collection | In-memory Qdrant (no server), 9 real sentences / 3 topics, text stored as payload next to the vector |
 | Query and verify | Real query; top result is the sentence a human would pick, confirmed by inspection |
 | Break semantic search | Exact-ID query (`REF-4471`) against pure vector search — honestly reported |

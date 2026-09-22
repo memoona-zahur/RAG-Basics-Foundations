@@ -38,7 +38,7 @@ claims — it keeps the cut-off context alive in a neighbouring chunk.
 
 Sentences: two about coffee (`cold brew`, `pour-over`), one about cycling (`road
 bikes`). Embeddings from `all-MiniLM-L6-v2`. Hand-computed with
-`np.dot(a,b)/(||a||·||b||)`:
+`np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))`:
 
 | Pair | Cosine |
 |---|---|
